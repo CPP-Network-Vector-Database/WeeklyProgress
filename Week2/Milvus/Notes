@@ -1,0 +1,65 @@
+1. Connect to Milvus
+connections.connect("default", host="localhost", port="19530")
+
+2. Define Schema for the Collection
+fields = [
+    FieldSchema(name="pk", dtype=DataType.INT64, is_primary=True, auto_id=False),
+    FieldSchema(name="random", dtype=DataType.DOUBLE),
+    FieldSchema(name="embeddings", dtype=DataType.FLOAT_VECTOR, dim=8),
+]
+schema = CollectionSchema(fields, description="hello_milvus is the simplest demo to introduce the APIs")
+
+pk: Integer primary key (not auto-generated).
+random: A floating-point number (used later for filtering).
+embeddings: A vector field of dimension 8 (the actual data used for similarity search).
+                                           
+3. Create an Index for Fast Search
+index_params = {
+    "index_type": "IVF_FLAT",
+    "metric_type": "L2",
+    "params": {"nlist": 128},
+}
+hello_milvus.create_index("embeddings", index_params)
+
+Creates an IVF_FLAT index with:
+metric_type: L2 (Euclidean Distance)
+nlist: 128 (number of clusters for the index)
+
+4. Perform a Filtered Search
+filtered_search_result = hello_milvus.search(vectors_to_search, "embeddings", search_params, limit=3, expr="random > -12", output_fields=["random"])
+
+Searches for top 3 closest vectors, but only among records where random > -12.
+                                           
+
+
+
+
+
+
+
+
+
+Types of searches involved-
+1. Random Search
+Definition:A brute-force search that randomly samples vectors from the database to find similar ones.No structured indexing or optimization is applied.
+Characteristics:
+    Slow: Inefficient for large datasets because it does not leverage indexing structures.
+    No Indexing: Works without pre-built indexes (uses raw vector comparison).
+    High Recall: Since all points are considered randomly, it may find diverse results.
+
+Use Cases:Small-scale datasets where indexing overhead is unnecessary.
+    
+
+
+2. Hybrid Search
+
+Definition:A combination of multiple retrieval techniques, typically vector search + structured filtering (e.g., keyword or metadata filters).
+Uses both ANN (Approximate Nearest Neighbor) search and traditional filtering.
+    
+Characteristics:
+    Efficient: Uses ANN-based indexing (IVF, HNSW, etc.) to speed up search.
+    Filtered Search: Can filter based on metadata (e.g., only search traffic with "TCP" protocol).
+    Lower Recall : Since it applies filtering, results might be limited.
+
+Use Cases:Searching for network traffic with both vector similarity and protocol-based filters.Applications where metadata is important (e.g., searching images by category and similarity).
+
