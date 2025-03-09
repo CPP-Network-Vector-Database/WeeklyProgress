@@ -1,15 +1,15 @@
 ## Trying Different Embeddings
 I took the BERT based models for testing out different embeddings and used a [dataset that has extracted pcap data into a csv](https://www.kaggle.com/datasets/namitaachyuthanpesu/pcap-2019-dira-125910)
 
-Input: 
+#### Input: 
 - [CSV with IP flow](https://www.kaggle.com/datasets/namitaachyuthanpesu/pcap-2019-dira-125910)
 
-Output:
+#### Output:
 - packet_embeddings.index
 - packet_metadata.csv
 - Performance results
 
-The actions tested were: 
+#### The actions tested were: 
 - querying a random packet (to get the top k neighbors)
     - Convert the query packet into text format.
     - Generate its BERT embedding.
@@ -29,7 +29,7 @@ The actions tested were:
         - Similar to delete + insert.
         - Just remove old embeddings from FAISS, recompute new ones, and reinsert.
 
-Points to focus on: 
+#### Points to focus on: 
 - FAISS is NOT a vector database, it's a library used with vector databases for easy indexing and retrieval
 - Last time I'd used FAISS with milvus for the different indexing methods, but for this, I wanted to see how FAISS perfroms as a standalone library
 - FAISS doesn't support deletion, so what I did was:
@@ -43,13 +43,13 @@ tl;dr: pick up the PID of the process and only use psutils for that rather than 
 
 This measure function helps accurately track CPU, memory usage, and execution time for any function. Previously, negative values appeared due to incorrect timing in resource measurement. 
 
-How it works:  
+#### How it works:  
 1. Captures CPU and memory usage before running the function.  
 2. Runs the function with the given arguments.  
 3. Captures CPU and memory usage again after execution.  
 4. Calculates the difference to get actual resource usage.  
 
-Why this fixes the issue: 
+#### Why this fixes the issue: 
 - `cpu_percent(interval=None)` ensures we don’t get misleading CPU readings.  
 - Memory is tracked correctly in MB, avoiding fluctuations.  
 - Execution time is measured precisely.  
