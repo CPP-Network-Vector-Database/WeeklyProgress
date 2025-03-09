@@ -1,0 +1,19 @@
+  version: '3.8'
+
+  services:
+    ubuntu_node:
+      image: ubuntu:latest
+      deploy:
+        replicas: 3  # Be carefull while setting replicas it should be adjusted as per resource availabilty in the system
+      command: ["bash", "-c", "apt update && apt install -y python3 python3-pip && pip3 install requests scapy --break-system-packages && python3 /app/network_simulator.py"]
+      volumes:
+        - ./network_simulator.py:/app/network_simulator.py
+      networks:
+        ubuntu_hosts_network:
+
+  networks:
+    ubuntu_hosts_network:
+      driver: bridge
+      ipam:
+        config:
+          - subnet: 172.20.0.0/24
