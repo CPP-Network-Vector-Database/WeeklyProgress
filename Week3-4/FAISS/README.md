@@ -20,14 +20,14 @@ I took the BERT based models for testing out different embeddings and used a [da
     - Convert 50+ new packets into embeddings.
     - Normalize them.
     - Add to the FAISS index.
-- deleting 50 random packets
+-  deleting 50 random packets
     - Problem!!! FAISS does not support direct deletion of individual embeddings.
     - Workaround:
         - Remove entries from the metadata CSV.
         - Rebuild the FAISS index without the deleted embeddings.
 - finding 50 packets and randomly updating it
-      - Similar to delete + insert.
-      - Just remove old embeddings from FAISS, recompute new ones, and reinsert.
+    - Similar to delete + insert.
+    - Just remove old embeddings from FAISS, recompute new ones, and reinsert.
 
 #### Points to focus on: 
 - FAISS is NOT a vector database, it's a library used with vector databases for easy indexing and retrieval
