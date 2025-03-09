@@ -6,6 +6,7 @@ I took the BERT based models for testing out different embeddings and used a [da
 
 #### Output:
 - packet_embeddings.index
+        - FAISS index contains 1653188 embeddings
 - packet_metadata.csv
 - Performance results
 
