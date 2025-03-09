@@ -26,8 +26,8 @@ I took the BERT based models for testing out different embeddings and used a [da
         - Remove entries from the metadata CSV.
         - Rebuild the FAISS index without the deleted embeddings.
 - finding 50 packets and randomly updating it
-        - Similar to delete + insert.
-        - Just remove old embeddings from FAISS, recompute new ones, and reinsert.
+      - Similar to delete + insert.
+      - Just remove old embeddings from FAISS, recompute new ones, and reinsert.
 
 #### Points to focus on: 
 - FAISS is NOT a vector database, it's a library used with vector databases for easy indexing and retrieval
