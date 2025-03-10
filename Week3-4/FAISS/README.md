@@ -10,7 +10,8 @@ The embedding models used were all BERT based, as that is what I had communicate
 - [**bert-base-nli-mean-tokens**](https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens)- Picked for strong natural language inference.  
 - [**mpnet-base-v2**](https://huggingface.co/sentence-transformers/paraphrase-mpnet-base-v2)- Used for capturing contextual sentence meaning.  
 - [**microsoft-codebert-base**](https://huggingface.co/microsoft/codebert-base)- Ideal for code understanding and embeddings.  
-- [**average_word_embeddings_komn**](https://huggingface.co/sentence-transformers/average_word_embeddings_komninos)- Preferred for lightweight word representations.  
+- [**average_word_embeddings_komn**](https://huggingface.co/sentence-transformers/average_word_embeddings_komninos)- Preferred for lightweight word representations.
+- [**ip2vec**](https://github.com/DavidHarar/IP2Vec)- using word2vec as base (yet to update table)
 
 #### Output:
 - packet_embeddings.index
