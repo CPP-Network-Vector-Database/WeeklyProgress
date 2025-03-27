@@ -7,8 +7,8 @@ Grafana, a visualization tool, complements Prometheus by displaying these metric
 
 ##  Screenshots
 
-### Dashboard View
-![Dashboard](./Screenshots/Python_script_terminal_output.png)  
+### Python Insertion Query Script 
+![Output](./Screenshots/Python_script_terminal_output.png)  
 *Output of Python script that processes network packets from a .pcapng file, extracts features, and generates vector embeddings using SentenceTransformer (all-MiniLM-L6-v2). It inserts the data into a PostgreSQL database with pgvector. The script also measures execution time, insertion speed, and CPU usage using psutil for performance benchmarking of vectorized packet storage.*
 
 ### Overall Usage
