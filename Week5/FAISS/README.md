@@ -28,3 +28,36 @@ By switching to **IVFFlatL2**, we improved the efficiency of insertions, updates
 - Instead of modifying the entire dataset during insertions, deletions, or updates, IVFFlatL2 only operates on the relevant clusters.  
 - Since search and modifications happen within specific clusters, the computational load is significantly lower than FlatL2.  
 - This method prevents kernel crashes and allows batch operations on **hundreds or even thousands** of embeddings instead of just 50 at a time.  
+
+### Results
+| Embedding Model                      | Embedding Size | Action                  | CPU Usage  | Memory Usage | Time Taken  |
+|--------------------------------------|---------------|-------------------------|------------|--------------|-------------|
+| paraphrase-MiniLM-v2                 | 384 dimensions | Query new packet       | 97.80%     | 0.01MB       | 0.0019s     |
+|                                       |               | Add 50 new packets      | 99.20%     | 0.05MB       | 0.0010s     |
+|                                       |               | Delete 50 packets       | 270.70%    | 0.11MB       | 0.0041s     |
+|                                       |               | Update 50 new packets   | 126.90%    | 0.12MB       | 0.1266s     |
+| MiniLM-L6-v2                          | 384 dimensions | Query new packet       | 97.00%     | 0.25MB       | 0.2160s     |
+|                                       |               | Add 50 new packets      | 99.90%     | 0.19MB       | 2.4035s     |
+|                                       |               | Delete 50 packets       | 100.30%    | 4843.21MB    | 3.1418s     |
+|                                       |               | Update 50 new packets   | 100.20%    | 4843.37MB    | 6.4888s     |
+| bert-base-nli-mean-tokens             | 768 dimensions | Query new packet       | 228.40%    | 0.04MB       | 0.0044s     |
+|                                       |               | Add 50 new packets      | 101.10%    | 0.12MB       | 0.0014s     |
+|                                       |               | Delete 50 packets       | 291.20%    | 0.15MB       | 0.0037s     |
+|                                       |               | Update 50 new packets   | 113.10%    | 0.12MB       | 0.2922s     |
+| distilbert                            | 768 dimensions | Query new packet       | 99.10%     | 0.00MB       | 0.0039s     |
+|                                       |               | Add 50 new packets      | 111.20%    | 0.25MB       | 0.0016s     |
+|                                       |               | Delete 50 packets       | 119.60%    | 0.17MB       | 0.0055s     |
+|                                       |               | Update 50 new packets   | 117.50%    | 0.12MB       | 0.1877s     |
+| mpnet-base-v2                         | 768 dimensions | Query new packet       | 195.70%    | 0.00MB       | 0.0051s     |
+|                                       |               | Add 50 new packets      | 110.20%    | 0.12MB       | 0.0016s     |
+|                                       |               | Delete 50 packets       | 119.30%    | 0.00MB       | 0.0045s     |
+|                                       |               | Update 50 new packets   | 112.70%    | 0.12MB       | 0.3021s     |
+| microsoft-codebert-base               | 768 dimensions | Query new packet       | 172.50%    | 0.12MB       | 0.0175s     |
+|                                       |               | Add 50 new packets      | 164.30%    | 0.75MB       | 0.0019s     |
+|                                       |               | Delete 50 packets       | 170.20%    | 0.38MB       | 0.0061s     |
+|                                       |               | Update 50 new packets   | 113.60%    | 0.38MB       | 0.3261s     |
+| average_word_embeddings_komn          | 768 dimensions | Query new packet       | 101.30%    | 0.00MB       | 0.0004s     |
+|                                       |               | Add 50 new packets      | 119.20%    | 0.00MB       | 0.0013s     |
+|                                       |               | Delete 50 packets       | 242.20%    | 0.99MB       | 0.0045s     |
+|                                       |               | Update 50 new packets   | 173.40%    | 0.00MB       | 0.0293s     |
+
