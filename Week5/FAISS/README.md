@@ -18,9 +18,13 @@ This week, my AAIs were:
 - finding 50 packets and randomly updating it
     - Similar to delete + insert.
     - Just remove old embeddings from FAISS, recompute new ones, and reinsert.
-#### Updated approach: 
-The reason this approach was used was because the flatL2 index was being used to store the data. Making the update and delete functions more efficient allowed for more insertions, updates, adn deletions without kernel crashes. 
-I believe this is because the brute force approach, though fast, introduces unnecessary overhead when it comes to updates and deletions, but IVFFlatL2, though slower than FlatL2, can perform better in CRUD operations because it **partitions the dataset into clusters** (nlist), **reducing the number of comparisons** needed for search and updates. 
 
-**Instead of modifying the entire dataset during insertions, deletions, or updates, IVFFlatL2 only operates on the relevant clusters**, making these operations more efficient. 
-This significantly reduces memory overhead and computational load, preventing kernel crashes and allowing me to work with MUCH mroe than 50 at a time. 
+#### Updated approach:  
+The reason this approach was used was because the FlatL2 index was initially used to store the data. While FlatL2 provides fast brute-force similarity search, it introduces unnecessary overhead when performing updates and deletions. This led to kernel crashes when handling larger-scale modifications.  
+
+By switching to **IVFFlatL2**, we improved the efficiency of insertions, updates, and deletions. IVFFlatL2 partitions the dataset into clusters (**nlist**), which reduces the number of comparisons needed for search and update operations.  
+
+##### Key improvements w IVFFlatL2:  
+- Instead of modifying the entire dataset during insertions, deletions, or updates, IVFFlatL2 only operates on the relevant clusters.  
+- Since search and modifications happen within specific clusters, the computational load is significantly lower than FlatL2.  
+- This method prevents kernel crashes and allows batch operations on **hundreds or even thousands** of embeddings instead of just 50 at a time.  
