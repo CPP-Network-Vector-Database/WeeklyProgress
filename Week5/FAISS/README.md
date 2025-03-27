@@ -1,6 +1,5 @@
 This week, my AAIs were: 
 - Work with other vector databases and FAISS
-- Test updates after large insertions
 - Make the update and deletion functions more efficient
 - Work on finetuning bert for ip flow embeddings generation
 
