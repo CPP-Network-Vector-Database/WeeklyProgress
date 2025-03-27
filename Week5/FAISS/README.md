@@ -36,10 +36,10 @@ By switching to **IVFFlatL2**, we improved the efficiency of insertions, updates
 |                                       |               | Add 50 new packets      | 99.20%     | 0.05MB       | 0.0010s     |
 |                                       |               | Delete 50 packets       | 270.70%    | 0.11MB       | 0.0041s     |
 |                                       |               | Update 50 new packets   | 126.90%    | 0.12MB       | 0.1266s     |
-| MiniLM-L6-v2                          | 384 dimensions | Query new packet       | 97.00%     | 0.25MB       | 0.2160s     |
-|                                       |               | Add 50 new packets      | 99.90%     | 0.19MB       | 2.4035s     |
-|                                       |               | Delete 50 packets       | 100.30%    | 4843.21MB    | 3.1418s     |
-|                                       |               | Update 50 new packets   | 100.20%    | 4843.37MB    | 6.4888s     |
+| MiniLM-L6-v2                          | 384 dimensions | Query new packet       | 98.20%     | 0.25MB       | 0.0024s     |
+|                                       |               | Add 50 new packets      | 99.60%     | 0.38MB       | 0.0036s     |
+|                                       |               | Delete 50 packets       | 100.30%    | 0.38MB    | 0.0067s     |
+|                                       |               | Update 50 new packets   | 156.0%    | 98.0MB    | 0.0389s     |
 | bert-base-nli-mean-tokens             | 768 dimensions | Query new packet       | 228.40%    | 0.04MB       | 0.0044s     |
 |                                       |               | Add 50 new packets      | 101.10%    | 0.12MB       | 0.0014s     |
 |                                       |               | Delete 50 packets       | 291.20%    | 0.15MB       | 0.0037s     |
