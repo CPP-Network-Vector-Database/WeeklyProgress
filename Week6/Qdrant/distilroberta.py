@@ -52,11 +52,11 @@ def benchmark(operation_name, function):
     latency = (time.time() - start_time) * 1000
     throughput = len(result) / (latency / 1000) if latency > 0 else 0
     
-    print(f"🔹 {operation_name}")
-    print(f"   🕒 Latency: {latency:.2f} ms")
-    print(f"   🔥 CPU Usage: {cpu_after - cpu_before:.2f}%")
-    print(f"   🧠 Memory Used: {mem_after - mem_before:.2f} MB")
-    print(f"   ⚡ Throughput: {throughput:.2f} ops/sec")
+    print(f" {operation_name}")
+    print(f"   Latency: {latency:.2f} ms")
+    print(f"   CPU Usage: {cpu_after - cpu_before:.2f}%")
+    print(f"   Memory Used: {mem_after - mem_before:.2f} MB")
+    print(f"   Throughput: {throughput:.2f} ops/sec")
     print("-" * 50)
     return result
 
@@ -72,29 +72,24 @@ def insert_vectors():
     client.upsert(collection_name=COLLECTION_NAME, points=points)
     return points
 
+# 2️⃣ Search Operation
 def search_vectors():
-    results = []
-    for vec in vectors[:10]:  # Search first 10 vectors
-        results.extend(client.search(
-            collection_name=COLLECTION_NAME,
-            query_vector=vec,
-            limit=5
-        ))
-    return results
-
-def update_vectors():
-    update_ids = ids[:100]  # Use stored UUIDs
-    new_vectors = embedder.encode([f"Updated {doc}" for doc in documents[:100]]).tolist()
+    return client.search(
+        collection_name=COLLECTION_NAME,
+        query_vector=vectors[0],  # Search using the first vector
+        limit=1
+    )
     
-    points = [
-        PointStruct(
-            id=uid,
-            vector=new_vectors[i],
-            payload={"source": "updated", "destination": "updated", "protocol": "UPDATED"}
-        ) for i, uid in enumerate(update_ids)
+def update_vectors():
+    updated_vectors = embedder.encode([f"Updated text {i}" for i in range(100)]).tolist()
+    points = [  # Store points in a variable first
+        PointStruct(id=i, vector=updated_vectors[i]) for i in range(100)
     ]
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
-    return points
+    client.upsert(
+        collection_name=COLLECTION_NAME,
+        points=points
+    )
+    return points  # Add return statement
 
 def delete_vectors():
     delete_ids = ids[:100]  # Use stored UUIDs
