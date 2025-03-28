@@ -100,11 +100,11 @@ def benchmark(operation_name, function):
     latency = (time.time() - start_time) * 1000
     throughput = len(result) / (latency / 1000) if latency > 0 else 0
     
-    print(f"\n🔹 {operation_name}")
-    print(f"   🕒 Latency: {latency:.2f} ms")
-    print(f"   🔥 CPU Usage: {cpu_after - cpu_before:.2f}%")
-    print(f"   🧠 Memory Used: {mem_after - mem_before:.2f} MB")
-    print(f"   ⚡ Throughput: {throughput:.2f} ops/sec")
+    print(f"\n {operation_name}")
+    print(f"   Latency: {latency:.2f} ms")
+    print(f"   CPU Usage: {cpu_after - cpu_before:.2f}%")
+    print(f"   Memory Used: {mem_after - mem_before:.2f} MB")
+    print(f"   Throughput: {throughput:.2f} ops/sec")
     print("-" * 50)
     return result
 
@@ -120,15 +120,13 @@ def insert_vectors():
     client.upsert(collection_name=COLLECTION_NAME, points=points)
     return points
 
+# 2️⃣ Search Operation
 def search_vectors():
-    results = []
-    for vec in vectors[:5]:  # Reduced search scope
-        results.extend(client.search(
-            collection_name=COLLECTION_NAME,
-            query_vector=vec,
-            limit=3
-        ))
-    return results
+    return client.search(
+        collection_name=COLLECTION_NAME,
+        query_vector=vectors[0],  # Search using the first vector
+        limit=1
+    )
 
 def update_vectors():
     update_ids = ids[:50]  # Reduced update batch
@@ -156,7 +154,7 @@ def delete_vectors():
     return delete_ids
 
 # Run benchmarks
-print("\n🚀 Starting SPLADE Benchmark Suite...")
+print("\nStarting SPLADE Benchmark Suite...")
 benchmark("INSERT (CREATE)", insert_vectors)
 benchmark("SEARCH (READ)", search_vectors)
 benchmark("UPDATE", update_vectors)
