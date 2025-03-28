@@ -1,0 +1,50 @@
+Model,Operation,Time (s),CPU (%),Memory (MB)
+paraphrase-MiniLM-L12-v2,Query Before Insertion,0.0005295276641845703,3804.6,0.0
+paraphrase-MiniLM-L12-v2,Insertion,0.0006301403045654297,0.0,0.0
+paraphrase-MiniLM-L12-v2,Query After Insertion,0.0003159046173095703,0.0,0.0
+paraphrase-MiniLM-L12-v2,Deletion,0.0003056526184082031,0.0,0.0
+paraphrase-MiniLM-L12-v2,Query After Deletion,0.00014662742614746094,0.0,0.0
+paraphrase-MiniLM-L12-v2,Update,0.10647964477539062,131.6,0.0
+paraphrase-MiniLM-L12-v2,Query After Update,0.0001850128173828125,0.0,0.0
+all-MiniLM-L6-v2,Query Before Insertion,0.00033664703369140625,0.0,0.0
+all-MiniLM-L6-v2,Insertion,0.0007109642028808594,0.0,0.0
+all-MiniLM-L6-v2,Query After Insertion,0.00015974044799804688,0.0,0.0
+all-MiniLM-L6-v2,Deletion,0.00027060508728027344,0.0,0.0
+all-MiniLM-L6-v2,Query After Deletion,0.000156402587890625,0.0,0.0
+all-MiniLM-L6-v2,Update,0.06807613372802734,162.0,0.0
+all-MiniLM-L6-v2,Query After Update,0.0003521442413330078,0.0,0.0
+distilbert-base-nli-stsb-mean-tokens,Query Before Insertion,0.0002529621124267578,0.0,0.0
+distilbert-base-nli-stsb-mean-tokens,Insertion,0.0011086463928222656,0.0,0.0
+distilbert-base-nli-stsb-mean-tokens,Query After Insertion,0.0002560615539550781,5644.4,0.0
+distilbert-base-nli-stsb-mean-tokens,Deletion,0.00037384033203125,0.0,0.0
+distilbert-base-nli-stsb-mean-tokens,Query After Deletion,0.0001971721649169922,0.0,0.0
+distilbert-base-nli-stsb-mean-tokens,Update,0.1550157070159912,122.6,0.0
+distilbert-base-nli-stsb-mean-tokens,Query After Update,0.00016927719116210938,0.0,0.0
+microsoft/codebert-base,Query Before Insertion,0.00028443336486816406,0.0,0.0
+microsoft/codebert-base,Insertion,0.0017082691192626953,0.0,0.0
+microsoft/codebert-base,Query After Insertion,0.00021696090698242188,0.0,0.0
+microsoft/codebert-base,Deletion,0.00037932395935058594,0.0,0.0
+microsoft/codebert-base,Query After Deletion,0.0002193450927734375,0.0,0.0
+microsoft/codebert-base,Update,0.2863125801086426,111.8,0.0
+microsoft/codebert-base,Query After Update,0.00030159950256347656,0.0,0.0
+bert-base-nli-mean-tokens,Query Before Insertion,0.0002307891845703125,0.0,0.0
+bert-base-nli-mean-tokens,Insertion,0.0010950565338134766,0.0,0.0
+bert-base-nli-mean-tokens,Query After Insertion,0.00016188621520996094,0.0,0.0
+bert-base-nli-mean-tokens,Deletion,0.00029754638671875,0.0,0.0
+bert-base-nli-mean-tokens,Query After Deletion,0.00013971328735351562,0.0,0.0
+bert-base-nli-mean-tokens,Update,0.29209208488464355,109.6,0.0
+bert-base-nli-mean-tokens,Query After Update,0.00015878677368164062,0.0,0.0
+sentence-transformers/average_word_embeddings_komninos,Query Before Insertion,0.00017881393432617188,0.0,0.0
+sentence-transformers/average_word_embeddings_komninos,Insertion,0.0004699230194091797,0.0,0.0
+sentence-transformers/average_word_embeddings_komninos,Query After Insertion,0.0001595020294189453,0.0,0.0
+sentence-transformers/average_word_embeddings_komninos,Deletion,0.0003235340118408203,0.0,0.0
+sentence-transformers/average_word_embeddings_komninos,Query After Deletion,0.00011777877807617188,0.0,0.0
+sentence-transformers/average_word_embeddings_komninos,Update,0.02200031280517578,229.0,0.0
+sentence-transformers/average_word_embeddings_komninos,Query After Update,0.00021529197692871094,0.0,0.0
+all-mpnet-base-v2,Query Before Insertion,0.00025963783264160156,0.0,0.0
+all-mpnet-base-v2,Insertion,0.0010576248168945312,0.0,0.0
+all-mpnet-base-v2,Query After Insertion,0.00022530555725097656,0.0,0.0
+all-mpnet-base-v2,Deletion,0.0002942085266113281,0.0,0.0
+all-mpnet-base-v2,Query After Deletion,0.00013256072998046875,0.0,0.0
+all-mpnet-base-v2,Update,0.29744839668273926,111.0,0.0
+all-mpnet-base-v2,Query After Update,0.00020551681518554688,5680.7,0.0
