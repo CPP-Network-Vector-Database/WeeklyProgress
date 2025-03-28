@@ -9,9 +9,9 @@ from qdrant_client.models import PointStruct, VectorParams, Distance
 QDRANT_HOST = "http://localhost"
 QDRANT_PORT = 6333
 COLLECTION_NAME = "cohere_trial_benchmark"
-NUM_RECORDS = 100  # Reduced for trial limits
+NUM_RECORDS = 1000  # Reduced for trial limits
 BATCH_SIZE = 8  # Conservative for rate limits
-COHERE_API_KEY = "qlvdXdFj0TsRvtRczx1kJPBqPJRyYL0YhTfAhfpS"  # From https://dashboard.cohere.com/
+COHERE_API_KEY = "sDRuCTOjW7S6VDxR08D60dbn9xu7fLJi1gruIqz3"  # From https://dashboard.cohere.com/
 MODEL_NAME = "embed-english-light-v3.0"  # Trial-compatible model
 VECTOR_SIZE = 384  # Dimension for light model
 
@@ -95,11 +95,11 @@ def benchmark(operation_name, function):
     latency = (time.time() - start_time) * 1000
     throughput = len(result) / (latency / 1000) if latency > 0 else 0
     
-    print(f"\n🔹 {operation_name}")
-    print(f"   🕒 Latency: {latency:.2f} ms")
-    print(f"   🔥 CPU Usage: {cpu_after - cpu_before:.2f}%")
-    print(f"   🧠 Memory Used: {mem_after - mem_before:.2f} MB")
-    print(f"   ⚡ Throughput: {throughput:.2f} ops/sec")
+    print(f"\n {operation_name}")
+    print(f"   Latency: {latency:.2f} ms")
+    print(f"   CPU Usage: {cpu_after - cpu_before:.2f}%")
+    print(f"   Memory Used: {mem_after - mem_before:.2f} MB")
+    print(f"   Throughput: {throughput:.2f} ops/sec")
     print("-" * 50)
     return result
 
@@ -115,16 +115,13 @@ def insert_vectors():
     client.upsert(collection_name=COLLECTION_NAME, points=points)
     return points
 
+# 2️⃣ Search Operation
 def search_vectors():
-    results = []
-    for vec in vectors[:5]:  # Search first 5 to limit calls
-        results.extend(client.search(
-            collection_name=COLLECTION_NAME,
-            query_vector=vec,
-            limit=3
-        ))
-        time.sleep(0.5)  # Rate limit buffer
-    return results
+    return client.search(
+        collection_name=COLLECTION_NAME,
+        query_vector=vectors[0],  # Search using the first vector
+        limit=1
+    )
 
 def update_vectors():
     update_ids = ids[:10]  # Limited for trial
