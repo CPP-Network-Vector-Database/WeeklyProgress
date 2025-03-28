@@ -11,7 +11,7 @@ QDRANT_PORT = 6333
 COLLECTION_NAME = "cohere_trial_benchmark"
 NUM_RECORDS = 1000  # Reduced for trial limits
 BATCH_SIZE = 8  # Conservative for rate limits
-COHERE_API_KEY = "sDRuCTOjW7S6VDxR08D60dbn9xu7fLJi1gruIqz3"  # From https://dashboard.cohere.com/
+COHERE_API_KEY = "api-key"  # From https://dashboard.cohere.com/
 MODEL_NAME = "embed-english-light-v3.0"  # Trial-compatible model
 VECTOR_SIZE = 384  # Dimension for light model
 
