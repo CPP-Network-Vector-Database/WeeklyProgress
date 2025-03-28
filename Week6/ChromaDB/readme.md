@@ -1,0 +1,4 @@
+- Tried different values for max_seq_length
+- Used process.memory_info instead of tracemalloc.start() to track memory
+- Handling even source and destination port along with source and destination ip and protocol
+- Tried different similarity metrics (l2, cosine, ip)
