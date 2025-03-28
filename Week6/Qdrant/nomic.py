@@ -70,11 +70,11 @@ def benchmark(operation_name, function):
     latency = (time.time() - start_time) * 1000
     throughput = len(result) / (latency / 1000) if latency > 0 else 0
     
-    print(f"🔹 {operation_name}")
-    print(f"   🕒 Latency: {latency:.2f} ms")
-    print(f"   🔥 CPU Usage: {cpu_after - cpu_before:.2f}%")
-    print(f"   🧠 Memory Used: {mem_after - mem_before:.2f} MB")
-    print(f"   ⚡ Throughput: {throughput:.2f} ops/sec")
+    print(f" {operation_name}")
+    print(f"    Latency: {latency:.2f} ms")
+    print(f"    CPU Usage: {cpu_after - cpu_before:.2f}%")
+    print(f"    Memory Used: {mem_after - mem_before:.2f} MB")
+    print(f"    Throughput: {throughput:.2f} ops/sec")
     print("-" * 50)
     return result
 
@@ -90,30 +90,33 @@ def insert_vectors():
     client.upsert(collection_name=COLLECTION_NAME, points=points)
     return points
 
-def search_vectors(): #high.. switch with old code
-    results = []
-    for vec in vectors[:10]:  # Search first 10 vectors
-        results.extend(client.search(
-            collection_name=COLLECTION_NAME,
-            query_vector=vec.tolist(),
-            limit=5
-        ))
-    return results
+# 2️⃣ Search Operation
+def search_vectors():
+    return client.search(
+        collection_name=COLLECTION_NAME,
+        query_vector=vectors[0],  # Search using the first vector
+        limit=1
+    )
 
-def update_vectors(): #high.. switch with old code
-    update_ids = ids[:100]
-    new_docs = [f"Updated {doc}" for doc in documents[:100]]
-    new_vectors = generate_embeddings(new_docs)
+# 3️⃣ Update Operation (fixed)
+def update_vectors():
+    updated_texts = [f"Updated text {i}" for i in range(100)]
+    updated_vectors = generate_embeddings(updated_texts)
     
+    # Create points list and return it
     points = [
         PointStruct(
-            id=uid,
+            id=ids[i],  # Use original UUIDs instead of index 'i'
             vector=vec.tolist(),
             payload={"source": "updated", "destination": "updated", "protocol": "UPDATED"}
-        ) for uid, vec in zip(update_ids, new_vectors)
+        ) for i, vec in enumerate(updated_vectors)
     ]
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
-    return points
+    
+    client.upsert(
+        collection_name=COLLECTION_NAME,
+        points=points
+    )
+    return points  # This fixes the NoneType error
 
 def delete_vectors(): #fluctuates.. prev code got lowest (9ms)
     delete_ids = ids[:100]
