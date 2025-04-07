@@ -47,5 +47,23 @@ This script processes multiple split PCAPNG files concurrently using Python’s 
 ### Comparison between all the scripts with dataset containing 1000 Packets 
 ![Output](./Screenshots/output_1k_packets.png)  
 
-*Comparison between all the scripts with dataset containing 258 Packets and 1000 packets for single proceess given single file and multiple process with multiple files and executed by 4 worker process. Observation is that if embedding model is considered multiple process will not work as expected efficiency because of innvolvement embedding computational overheads and in limited resource machine * 
+*Comparison between all the scripts with dataset containing 258 Packets and 1000 packets for single proceess given single file and multiple process with multiple files and executed by 4 worker process.* 
 
+
+## Observation
+
+If embedding model is considered and with multiple process, it will not work as expected efficiency because of innvolvement of embedding models computational overheads and in constrained resource machine. 
+
+| **Dataset: 258 Packets**       | **With Embedding**        | **Without Embedding**      |
+|-------------------|--------------------|-----------------|
+| **Single Process**         |  3.60  |  0.611  |
+| **Multiple Process**  | 74.67 |  0.360  |
+
+*Total Execution Time Taken in seconds* 
+
+| **Dataset: 1k Packets**       | **With Embedding**        | **Without Embedding**      |
+|-------------------|--------------------|-----------------|
+| **Single Process**         |  29.51  |  10.09  |
+| **Multiple Process**  | 483.98 |  3.80  |
+
+*Total Execution Time Taken in seconds* 
