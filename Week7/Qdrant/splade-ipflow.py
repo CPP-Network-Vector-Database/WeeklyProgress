@@ -15,7 +15,7 @@ QDRANT_HOST = "http://localhost"
 QDRANT_PORT = 6333
 BATCH_SIZE = 16     # Optimized for SPLADE's requirements
 MODEL_NAME = "naver/splade-cocondenser-ensembledistil"
-CSV_PATH = "C:/Users/thest\ip_flow/ip_flow_dataset.csv"  # Path to your dataset
+CSV_PATH = "ip_flow_dataset.csv"  # Path to your dataset
 
 # Benchmark configurations
 CONFIGURATIONS = [
@@ -38,7 +38,7 @@ client = QdrantClient(
 )
 
 # Load 5-Tuple IP Flow Dataset
-def load_ip_flow_data(csv_path, limit=1000):
+def load_ip_flow_data(csv_path, limit=10000):
     """Load IP flow data from CSV and prepare for embedding"""
     try:
         # Load CSV data with proper handling of quote characters

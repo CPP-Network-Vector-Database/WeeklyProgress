@@ -14,7 +14,7 @@ QDRANT_HOST = "localhost"  # Changed from http://localhost to just localhost
 QDRANT_PORT = 6333
 BATCH_SIZE = 32  # Reduced for CPU memory constraints
 MODEL_NAME = "nomic-ai/nomic-embed-text-v1.5"
-DATA_PATH = "C:/Users/thest\ip_flow/ip_flow_dataset.csv"  # Update this with your actual file path
+DATA_PATH = "ip_flow_dataset.csv"  # Update this with your actual file path
 TIMEOUT = 120.0  # Set a longer timeout (in seconds)
 
 # Benchmark configurations
@@ -26,7 +26,7 @@ CONFIGURATIONS = [
 ]
 
 # Load data from CSV file
-def load_data(file_path, max_records=1000):
+def load_data(file_path, max_records=10000):
     print(f"Loading data from {file_path}...")
     try:
         df = pd.read_csv(file_path)

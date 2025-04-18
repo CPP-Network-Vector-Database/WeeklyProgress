@@ -10,9 +10,9 @@ from sentence_transformers import SentenceTransformer
 # Configuration
 QDRANT_HOST = "localhost"  # Host without protocol to avoid errors
 QDRANT_PORT = 6333         # Default Qdrant port
-NUM_RECORDS = 1000         # Number of records to process
+NUM_RECORDS = 10000         # Number of records to process
 BATCH_SIZE = 100           # Batch size for embedding generation
-DATASET_PATH = "C:/Users/thest/ip_flow/ip_flow_dataset.csv"  # Update this to your CSV file path
+DATASET_PATH = "ip_flow_dataset.csv"  # Update this to your CSV file path
 
 # Benchmark configurations
 CONFIGURATIONS = [

@@ -1,0 +1,17 @@
+Operation,Configuration,Latency (ms),CPU Usage (%),Memory Usage (MB),Throughput (ops/s),Model
+INSERT,HNSW Baseline,11939.031600952148,64.7,245.75,837.5888710439874,nomic-ai/nomic-embed-text-v1.5
+INSERT,Disk-based Indexing Only,10981.55927658081,67.0,238.75,910.6174950333259,nomic-ai/nomic-embed-text-v1.5
+INSERT,Payload-based Indexing Only,10829.763174057007,66.5,238.5,923.3812262815934,nomic-ai/nomic-embed-text-v1.5
+INSERT,Disk-based + Payload Indexing,10698.244333267212,67.6,235.25,934.732811149587,nomic-ai/nomic-embed-text-v1.5
+SEARCH,HNSW Baseline,13.24462890625,75.0,0.0,755.0230414746544,nomic-ai/nomic-embed-text-v1.5
+SEARCH,Disk-based Indexing Only,12.781381607055664,78.0,0.0,782.3880318603219,nomic-ai/nomic-embed-text-v1.5
+SEARCH,Payload-based Indexing Only,9.482145309448242,105.1,0.0,1054.6136632219457,nomic-ai/nomic-embed-text-v1.5
+SEARCH,Disk-based + Payload Indexing,14.710187911987305,0.0,0.0,679.8009692215433,nomic-ai/nomic-embed-text-v1.5
+UPDATE,HNSW Baseline,5022.664785385132,762.1,25.25,9.95487497901297,nomic-ai/nomic-embed-text-v1.5
+UPDATE,Disk-based Indexing Only,6119.268894195557,757.9,-29.2265625,8.170910751679434,nomic-ai/nomic-embed-text-v1.5
+UPDATE,Payload-based Indexing Only,5542.922019958496,771.4,-1.75390625,9.020512974919027,nomic-ai/nomic-embed-text-v1.5
+UPDATE,Disk-based + Payload Indexing,5438.439130783081,781.7,-0.7265625,9.193814401081749,nomic-ai/nomic-embed-text-v1.5
+DELETE,HNSW Baseline,6.3571929931640625,156.2,0.0,7865.106510651065,nomic-ai/nomic-embed-text-v1.5
+DELETE,Disk-based Indexing Only,5.604267120361328,0.0,0.0,8921.773164298476,nomic-ai/nomic-embed-text-v1.5
+DELETE,Payload-based Indexing Only,5.697488784790039,0.0,0.0,8775.796125036615,nomic-ai/nomic-embed-text-v1.5
+DELETE,Disk-based + Payload Indexing,4.448652267456055,0.0,0.0,11239.359022455652,nomic-ai/nomic-embed-text-v1.5
