@@ -31,15 +31,20 @@
     - Evaluation was done via Purity Score and Silhouette Score
 
 #### Results  
-Silhouette (Word2Vec): 0.3368
-Silhouette (Trans): 0.3477
+| Metric                | Word2Vec | Transformer |
+|-----------------------|----------|-------------|
+| Silhouette Score      | 0.3368   | 0.3477      |
+| Purity Score          | 0.6800   | 1.0000      |
 
-Purity (Word2Vec): 0.6800
-Purity (Transformer): 1.0000
 
 * The PCA visualizations of both embedding spaces showed clearer cluster separation in the transformer space.  
 * Word2Vec still managed to form rough groups, but the clusters were looser, and some families (DNS vs SSH) got muddled 
 * Silhouette score for Word2Vec was lower- indicating that even when clusters formed, they were less "tight" than BERT's.
+
+![image](https://github.com/user-attachments/assets/05bac5f8-3b7b-4e61-9c11-e3224e50bae1)
+![image](https://github.com/user-attachments/assets/cc07f0ac-f0fd-47ab-9902-d06f71e5afc1)
+
+
 
 
 #### Conclusion
