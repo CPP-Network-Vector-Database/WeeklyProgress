@@ -1,6 +1,6 @@
 DistilBert embeddings are used
 
-| Metric | Query Latency | CPU Usage | Memory Delta | Distance score for port 63142 |
+| Metric | Query Latency | CPU Usage | Memory Delta | Distance score for source port |
 | :---- | :---- | :---- | :---- | :---- |
 | L2 | 0.685392 s | 13.83% | 1035.5 MB | 0.181191 |
 | IP | 0.022646 s | 13.48% | 0.0 MB | 164.5759 |
