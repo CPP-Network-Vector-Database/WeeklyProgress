@@ -18,15 +18,16 @@ Each model's entire run generated a set of performance metrics, and all of them 
 > Does this mean we have to look into optimizing for the GPU? Or since we're looking at this being more on the edge, should we just work with the CPU? 
 
 #### Cosine Similarity metrics per model: 
-| Model Name                         | Top 5 Neighbor Indices              | Cosine Similarities                  |
-|-----------------------------------|-------------------------------------|--------------------------------------|
-| paraphrase-MiniLM-L12-v2         | [367935, 367935, 367935, 367935, 367935] | [0.0129, 0.0129, 0.0129, 0.0129, 0.0129] |
-| all-MiniLM-L6-v2                 | [368025, 368025, 368028, 368829, 368027] | [0.1636, 0.1636, 0.1636, 0.2015, 0.2064] |
-| distilbert-base-nli-stsb-mean-tokens | [367926, 367926, 367927, 367926, 367926] | [0.1393, 0.1393, 0.1393, 0.1393, 0.1393] |
-| microsoft/codebert-base          | [367926, 367926, 367926, 367926, 367929] | [0.0016, 0.0016, 0.0016, 0.0016, 0.0016] |
-| bert-base-nli-mean-tokens        | [368028, 368024, 368024, 368024, 368026] | [0.1744, 0.1744, 0.1744, 0.1744, 0.1963] |
-| average_word_embeddings_komninos | [367935, 367935, 367936, 367939, 367939] | [4.31e-16, 4.31e-16, 4.31e-16, 4.31e-16, 4.31e-16] |
-| all-mpnet-base-v2                | [367935, 367935, 367935, 367935, 367936] | [0.0703, 0.0703, 0.0703, 0.0703, 0.0703] |
+| Model Name                         | Average Cosine Similarity |
+|-----------------------------------|-------------------|
+| paraphrase-MiniLM-L12-v2         | 0.0129            |
+| all-MiniLM-L6-v2                 | 0.1636            |
+| distilbert-base-nli-stsb-mean-tokens | 0.1393        |
+| microsoft/codebert-base          | 0.0016            |
+| bert-base-nli-mean-tokens        | 0.1744            |
+| average_word_embeddings_komninos | 4.31e-16          |
+| all-mpnet-base-v2                | 0.0703            |
+
 
 
 Key takeaways: 
