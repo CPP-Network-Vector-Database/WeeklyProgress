@@ -1,0 +1,105 @@
+Inserting chunk in PID 5941
+Inserting chunk in PID 5939
+Inserting chunk in PID 5938
+Inserting chunk in PID 5937
+Inserting chunk in PID 5940
+Inserting chunk in PID 5936
+Insert Performance:
+--- Performance Metrics ---
+Total operations: 10000
+Total time taken: 1255.1500 seconds
+Total memory usage: 1790.23 MB
+Total CPU time usage: 97.59%
+Total system memory usage: 18.10%
+Throughput: 7.97 operations/sec
+
+--- Performance Per Operation ---
+Time per operation: 0.125515 sec/op
+Memory per operation: 0.179023 MB/op
+CPU per operation: 0.009759%
+System memory per operation: 0.001810%
+-------------------------
+
+
+Number of records in collection after insert: 10000 
+
+
+Querying chunk in PID 7034
+Querying chunk in PID 7033
+Querying chunk in PID 7031
+Querying chunk in PID 7035
+Querying chunk in PID 7030
+Querying chunk in PID 7032
+
+Average distances for each query: [0.009842884919652715, 0.017711687273485585, 0.019401921262033283, 0.02044973665033467, 0.02124277445790358]
+Query Performance:
+--- Performance Metrics ---
+Total operations: 10000
+Total time taken: 1212.0917 seconds
+Total memory usage: 1769.89 MB
+Total CPU time usage: 98.02%
+Total system memory usage: 18.03%
+Throughput: 8.25 operations/sec
+
+--- Performance Per Operation ---
+Time per operation: 0.121209 sec/op
+Memory per operation: 0.176989 MB/op
+CPU per operation: 0.009802%
+System memory per operation: 0.001803%
+-------------------------
+
+
+Number of records in collection after query: 10000 
+
+
+Updating chunk in PID 7215
+Updating chunk in PID 7214
+Updating chunk in PID 7213
+Updating chunk in PID 7218
+Updating chunk in PID 7216
+Update Performance:
+--- Performance Metrics ---
+Total operations: 10000
+Total time taken: 1241.5802 seconds
+Total memory usage: 1779.04 MB
+Total CPU time usage: 97.33%
+Total system memory usage: 18.09%
+Throughput: 8.05 operations/sec
+
+--- Performance Per Operation ---
+Time per operation: 0.124158 sec/op
+Memory per operation: 0.177904 MB/op
+CPU per operation: 0.009733%
+System memory per operation: 0.001809%
+-------------------------
+
+
+Number of records in collection after update: 10000 
+
+
+Deleting chunk in PID 7829
+Deleting chunk in PID 7830
+Deleting chunk in PID 7831
+Deleting chunk in PID 7832
+Deleting chunk in PID 7828
+Deleting chunk in PID 7833
+Delete Performance:
+--- Performance Metrics ---
+Total operations: 10000
+Total time taken: 18.3672 seconds
+Total memory usage: 144.64 MB
+Total CPU time usage: 38.48%
+Total system memory usage: 11.27%
+Throughput: 544.45 operations/sec
+
+--- Performance Per Operation ---
+Time per operation: 0.001837 sec/op
+Memory per operation: 0.014464 MB/op
+CPU per operation: 0.003848%
+System memory per operation: 0.001127%
+-------------------------
+
+
+Number of records in collection after delete: 0 
+
+
