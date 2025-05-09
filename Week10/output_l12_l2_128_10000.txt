@@ -1,0 +1,28 @@
+Inserting chunk in PID 72579
+Inserting chunk in PID 72584
+Inserting chunk in PID 72582
+Inserting chunk in PID 72583
+Inserting chunk in PID 72580
+Inserting chunk in PID 72581
+Insert Performance:
+--- Performance Metrics ---
+Total operations: 10000
+Total time taken: 1481.4361 seconds
+Total memory usage: 1112.39 MB
+Total CPU time usage: 97.87%
+Total system memory usage: 15.01%
+Throughput: 6.75 operations/sec
+
+--- Performance Per Operation ---
+Time per operation: 0.148144 sec/op
+Memory per operation: 0.111239 MB/op
+CPU per operation: 0.009787%
+System memory per operation: 0.001501%
+-------------------------
+
+
+Number of records in collection after insert: 10000 
+
+
+Querying chunk in PID 73829
+Querying chunk in PID 73827
