@@ -25,7 +25,7 @@ So, in this project, we decided to flip the script a little. We generated embedd
 ---
 
 ## 3. IP Flow Embeddings
-
+(add more here pls)
 For our dataset, we used IP flow records. These include fields like source IP, destination IP, source port, destination port, timestamp, protocol, byte count, packet count, and so on.
 
 We generated embeddings using two approaches:
@@ -60,7 +60,6 @@ Each system was tested across the following criteria:
 - **Recall@k**
 - **Memory Usage (RAM during insert and query)**
 - **Disk Footprint**
-- **Insert Throughput**
 - **CPU Utilization**
 - **Ease of Use / Developer Experience**
 
