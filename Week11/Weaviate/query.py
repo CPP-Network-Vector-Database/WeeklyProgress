@@ -18,32 +18,8 @@ def semantic_query_ip_flow(query_text, limit=5):
     )
     return result
 
-# def update_ip_flow(protocol, new_frame_length):
-#     batch_size = 100
-#     update_count = 0
-#     while True:
-#         query = client.query.get("IPFlow", ["_additional { id }"]).with_where({
-#             "operator": "And",
-#             "operands": [
-#                 {"path": ["protocol"], "operator": "Equal", "valueString": protocol},
-#                 {"path": ["frame_length"], "operator": "NotEqual", "valueNumber": new_frame_length}
-#             ]
-#         }).with_limit(batch_size).do()
-
-#         ip_flows = query.get("data", {}).get("Get", {}).get("IPFlow", [])
-#         if not ip_flows:
-#             break
-
-#         for obj in ip_flows:
-#             client.data_object.update({"frame_length": new_frame_length}, class_name="IPFlow", uuid=obj["_additional"]["id"])
-#             update_count += 1
-
-#     print(f"Updated frame_length to {new_frame_length} for {update_count} IP flows with protocol: {protocol}")
 
 def update_ip_flow(protocol, new_frame_length, batch_size=100):
-    """
-    Batch-updates IPFlow records for a given protocol to set a new frame_length
-    """
     normalized_protocol = protocol.strip().upper()
     offset = 0
     update_count = 0
@@ -91,11 +67,7 @@ def update_ip_flow(protocol, new_frame_length, batch_size=100):
 
 
 def delete_ip_flow(protocol_name, batch_size=100):
-    """
-    Batch-deletes IPFlow records for a given protocol
-    """
     normalized_protocol = protocol_name.strip().upper()
-    offset = 0
     delete_count = 0
 
     while True:
@@ -111,9 +83,9 @@ def delete_ip_flow(protocol_name, batch_size=100):
 
             matching_records = response.get("data", {}).get("Get", {}).get("IPFlow", [])
             if not matching_records:
-                break  # No more records
+                break 
 
-            print(f"Batch at offset {offset}: Found {len(matching_records)} records")
+            print(f" Found {len(matching_records)} records")
 
             for record in matching_records:
                 record_id = record["_additional"]["id"]
@@ -127,8 +99,6 @@ def delete_ip_flow(protocol_name, batch_size=100):
                 except Exception as e:
                     print(f"Error deleting record {record_id}: {e}")
 
-            # Don't increment offset if deletes affect the query window
-            # Instead, just continue from same offset, as the dataset size has shrunk
         except Exception as e:
             print(f"Error during batch delete at offset {offset}: {e}")
             break
